@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qkm.xinguan.domain.infrastructure.mapper.DepartmentMapper">
+    <select id="findDeptNameAndCount" resultType="com.qkm.xinguan.domain.transform.dto.DepartmentSimpleDTO">
+        select d.`id`        as id,
+               d.`name`      as deptName,
+               count(u.`id`) as deptCount
+        from tb_department d
+                 left join tb_user u on d.`id` = u.`department_id`
+            and u.`forbidden` = 1
+        group by d.`id`, d.`name`
+    </select>
+    <select id="getDeptNameById" resultType="java.lang.String">
+        select name
+        from tb_department
+        where id = #{value}
+    </select>
+    <select id="getIdByDeptName" resultType="java.lang.Long">
+        select id
+        from tb_department
+        where name = #{value}
+    </select>
+    <select id="getDeptNamesByIds" resultType="java.lang.String">
+        select name from
+        <foreach collection="ids" item="id" open="(" close=")" index="index">
+            select #{id} as id from dual
+            <if test="index+1 != ids.size()">
+                union all
+            </if>
+        </foreach>
+        t1 left join tb_department t2 on t1.id = t2.id
+    </select>
+    <select id="getList" resultType="com.qkm.xinguan.domain.entity.Department">
+        select id, name, phone, address, create_time, modified_time from
+        tb_department
+        where 1=1
+        <if test="deptName != null and deptName != ''">
+            and name like concat('%', #{deptName}, '%')
+        </if>
+        <if test="phone != null and phone != ''">
+            and phone like concat('%', #{phone}, '%')
+        </if>
+        limit #{page}, #{size}
+    </select>
+    <select id="getDeptPersonsById" resultType="java.lang.Integer">
+        select count(u.`id`)
+        from tb_department d
+                 left join tb_user u on d.`id` = u.`department_id`
+            and u.`forbidden` = 1
+        where d.`id` = #{id}
+    </select>
+</mapper>

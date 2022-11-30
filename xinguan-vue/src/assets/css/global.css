@@ -1,0 +1,25 @@
+/* 全局样式表 */
+
+html,body, #app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* 隐藏全部下拉条 */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.el-card {
+    overflow: auto;
+}
+
+.el-pagination {
+    padding: 15px 20px 15px 0;
+    float: right;
+}
+
+.el-drawer__body{
+    overflow: auto;
+}

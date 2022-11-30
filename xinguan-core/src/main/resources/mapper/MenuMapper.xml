@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qkm.xinguan.domain.infrastructure.mapper.MenuMapper">
+    <update id="updateChildrens">
+        UPDATE tb_menu SET available = #{available} WHERE id IN
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <select id="checkHasChildren" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM tb_menu
+        WHERE parent_id = #{menuId}
+    </select>
+    <select id="getChildrenIds" resultType="java.lang.Long"></select>
+    <select id="getMenuNameListByIds" resultType="java.lang.String">
+        select menu_name from
+        <foreach collection="menuIds" item="id" open="(" close=")" index="index">
+            select #{id} as id from dual
+            <if test="index+1 != menuIds.size()">
+                union all
+            </if>
+        </foreach>
+        t1 left join tb_menu t2 on t1.id = t2.id
+    </select>
+</mapper>

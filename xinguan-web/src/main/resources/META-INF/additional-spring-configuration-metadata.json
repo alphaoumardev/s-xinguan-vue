@@ -1,0 +1,99 @@
+{
+  "properties": [
+    {
+      "name": "site.host",
+      "type": "java.lang.String",
+      "description": "主机地址."
+    },
+    {
+      "name": "app.author",
+      "type": "java.lang.String",
+      "description": "作者."
+    },
+    {
+      "name": "swagger.enable",
+      "type": "java.lang.String",
+      "description": "swagger 开关."
+    },
+    {
+      "name": "alioss.endpoint",
+      "type": "java.lang.String",
+      "description": "Description for alioss.endpoint."
+    },
+    {
+      "name": "alioss.accessKeyId",
+      "type": "java.lang.String",
+      "description": "Description for alioss.accessKeyId."
+    },
+    {
+      "name": "alioss.accessKeySecret",
+      "type": "java.lang.String",
+      "description": "Description for alioss.accessKeySecret."
+    },
+    {
+      "name": "alioss.bucketName",
+      "type": "java.lang.String",
+      "description": "Description for alioss.bucketName."
+    },
+    {
+      "name": "yq.dataUrl",
+      "type": "java.lang.String",
+      "description": "Description for yq.dataUrl."
+    },
+    {
+      "name": "alioss.urlPrefix",
+      "type": "java.lang.String",
+      "description": "Description for alioss.urlPrefix."
+    },
+    {
+      "name": "system.allowUrl",
+      "type": "java.lang.String",
+      "description": "Description for system.allowUrl."
+    },
+    {
+      "name": "druid.username",
+      "type": "java.lang.String",
+      "description": "Description for druid.username."
+    },
+    {
+      "name": "druid.password",
+      "type": "java.lang.String",
+      "description": "Description for druid.password."
+    },
+    {
+      "name": "token.head",
+      "type": "java.lang.String",
+      "description": "Description for token.head."
+    },
+    {
+      "name": "token.expireTime",
+      "type": "java.lang.String",
+      "description": "Description for token.expireTime."
+    },
+    {
+      "name": "token.secret",
+      "type": "java.lang.String",
+      "description": "Description for token.secret."
+    },
+    {
+      "name": "system.author",
+      "type": "java.lang.String",
+      "description": "Description for system.author."
+    },
+    {
+      "name": "system.phone",
+      "type": "java.lang.String",
+      "description": "Description for system.phone."
+    },
+    {
+      "name": "system.qq",
+      "type": "java.lang.String",
+      "description": "Description for system.qq."
+    },
+    {
+      "name": "system.wechat",
+      "type": "java.lang.String",
+      "description": "Description for system.wechat."
+    }
+  ]
+}
